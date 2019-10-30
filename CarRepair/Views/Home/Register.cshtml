@@ -1,0 +1,48 @@
+﻿@model Car
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Register";
+}
+
+<div class="panel panel-success">
+    <div class="panel-heading text-center"><h4>Car Registration Form</h4></div>
+    <div class="panel-body">
+        <form class="p-a-1" asp-action="Register" asp-controller="Home" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label asp-for="LicensePlate">License plate: </label>
+                <input asp-for="LicensePlate" />
+            </div>
+            <div class="form-group">
+                <label asp-for="OwnerName">Owner's Name: </label>
+                <input asp-for="OwnerName" />
+            </div>
+            <div class="form-group">
+                <label asp-for="OwnerAddress">Owner's Address: </label>
+                <input asp-for="OwnerAddress" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Make">Make: </label>
+                <select asp-for="Make">
+                    <option value="">Please choose the Make</option>
+                    <option value="1">Honda</option>
+                    <option value="2">Toyota</option>
+                    <option value="3">Volvo</option>
+                    <option value="4">Lexus</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model">Model: </label>
+                <input asp-for="Model" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Doors">Additional features: </label>
+                <input type="checkbox"  asp-for="Doors" />4 door |
+                <input type="checkbox"  asp-for="Electric" />Electric |
+                <input type="checkbox"  asp-for="WD" />4WD
+            </div>
+                <button type="submit">Register</button> | <button asp-action="Index">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿@model Car
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "View Car";
+}
+<h4>View Details of the Car</h4>
+<div class="text-center">
+    <table class="table table-sm table-striped table-bordered">
+        <tr>
+            <td>Owner's Name</td>
+            <td>Owner's Address</td>
+            <td>License plate</td>
+            <td>Make</td>
+            <td>Model</td>
+            <td>Additional features</td>
+        </tr>
+        <tr>
+            <td>
+                @Model.OwnerName
+            </td>
+            <td>@Model.OwnerAddress</td>
+            <td>@Model.LicensePlate</td>
+            <td>
+                @switch (Model.Make)
+                {
+                    case 1:
+                        @:Honda
+                break;
+                    case 2:
+                        @:Toyota
+                break;
+                    case 3:
+                        @:Volvo
+                break;
+                    case 4:
+                        @:Lexus
+                break;
+
+                }
+            </td>
+            <td>@Model.Model</td>
+            <td>@(Model.Doors ? "4 Door" : "")
+            @(Model.Electric ? "Electric" : "")
+            @(Model.WD ? "4WD" : "")</td>
+        </tr>
+    </table>
+</div>

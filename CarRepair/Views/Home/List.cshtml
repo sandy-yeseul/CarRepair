@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Car>
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "List of Cars";
+}
+<div class="panel-body">
+    <h4>List of Cars</h4>
+    <table class="table table-sm table-striped table-bordered">
+        <tr>
+            <td>Owner's Name</td>
+            <td>Model of the Car</td>
+            <td>Registration Date</td>
+        </tr>
+        @foreach (Car c in Model)
+        {
+            <tr>
+                <td><a asp-action="ViewCar" asp-route-ownerName="@c.OwnerName">@c.OwnerName</a></td>
+                <td>@c.Model</td>
+                <td>@c.RegistrationDate</td>
+            </tr>
+        }
+    </table>
+</div>
